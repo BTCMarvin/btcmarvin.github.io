@@ -3,15 +3,16 @@
 	template.innerHTML = `
 		<form id="form">
 			<fieldset>
-				<legend>Color Properties</legend>
+				<legend>Select Mode</legend>
 				<table>
 					<tr>
-						<td>Color</td>
-						<td><input id="bps_color" type="text" size="10" maxlength="10"></td>
-					</tr>
-					<tr>
-						<td>Text</td>
-						<td><input id="bps_value" type="text" size="10"></td>
+						<td>Mode</td>
+						<td>
+							<select id="bps_mode">
+								<option value="input">Input</option>
+								<option value="output">Output</option>
+							</select>
+						</td>
 					</tr>
 				</table>
 				<input type="submit" style="display:none;">
@@ -38,27 +39,18 @@
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 					detail: {
 						properties: {
-							color: this.color,
-							value: this.value
+							mode: this.mode
 						}
 					}
 			}));
 		}
 
-		set color(newColor) {
-			this._shadowRoot.getElementById("bps_color").value = newColor;
-		}
-
-		get color() {
-			return this._shadowRoot.getElementById("bps_color").value;
-		}
-
-		set value(newValue) {
-			this._shadowRoot.getElementById("bps_value").value = newValue;
+		set value(newMode) {
+			this._shadowRoot.getElementById("bps_mode").value = newValue;
 		}
 
 		get value() {
-			return this._shadowRoot.getElementById("bps_value").value;
+			return this._shadowRoot.getElementById("bps_mode").value;
 		}
 	}
 

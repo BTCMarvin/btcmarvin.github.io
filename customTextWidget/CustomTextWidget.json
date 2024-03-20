@@ -38,6 +38,10 @@
         "value": {
             "type": "string",
             "default": "Enter new Text"
+        },
+        "mode": {
+            "type": "string",
+            "defualt": "input"
         }
         
     },

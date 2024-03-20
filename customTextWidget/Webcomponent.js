@@ -23,7 +23,7 @@
     }
     </style>
     <div class="editable-textfield" contenteditable="true"></div>
-    <div>
+    <div class="button-container">
         <button class="format-action" data-style="bold">B</button>
         <button class="format-action" data-style="italic">I</button>
         <button class="format-action" data-style="underline">U</button>
@@ -80,16 +80,14 @@
 
 		onCustomWidgetAfterUpdate(changedProperties) {
             console.log(changedProperties);
-			if ("value" in changedProperties) {
-				this.setValue(changedProperties["value"]);
-			}
-			
-			if ("info" in changedProperties) {
-				this.$info = changedProperties["info"];
-			}
-			
-			if ("color" in changedProperties) {
-				this.$color = changedProperties["color"];
+			if ("mode" in changedProperties) {
+				if(changedProperties["mode"] == "input"){
+                    this._buttons.style.display = "block";
+                    this._editableDiv.style.pointerEvents = "all";
+                }else if (changedProperties["mode"] == "output") {
+                    this._buttons.style.display = "none";
+                    this._editableDiv.style.pointerEvents = "none";
+                }
 			}
 			
 		}
