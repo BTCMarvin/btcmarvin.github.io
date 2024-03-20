@@ -40,6 +40,7 @@
             this._buttons = this._shadowRoot.querySelectorAll('.format-action');
 
             this._attachEventHandlers();
+            this._props = {};
         }
 
         _attachEventHandlers() {
@@ -72,6 +73,14 @@
         setValue(htmlValue) {
             this._editableDiv.innerHTML = htmlValue;
         }
+
+        onCustomWidgetBeforeUpdate(changedProperties) {
+			this._props = { ...this._props, ...changedProperties };
+		}
+
+		onCustomWidgetAfterUpdate(changedProperties) {
+            console.log(changedProperties);
+		}
         
     }
 

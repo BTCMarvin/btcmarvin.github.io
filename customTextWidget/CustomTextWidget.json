@@ -9,6 +9,7 @@
     "id":"CustomTextWidget",
     "version": "1.0.0",
     "supportsExport": true,
+    "supportsBookmark": true,
     "webcomponents": [
         {
             "kind": "main",
@@ -16,7 +17,14 @@
             "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent.js",
             "integrity": "",
             "ignoreIntegrity": true
-        }
+        },
+        {
+			"kind": "builder",
+			"tag": "custom-textfield-bps",
+			"url": "https://btcmarvin.github.io/customTextWidget/Webcomponent-bps.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
     ],
     "properties": {
         "width": {
@@ -26,6 +34,10 @@
         "height": {
             "type": "integer",
             "default": 200
+        },
+        "text": {
+            "type": "string",
+            "default": "Enter new Text"
         }
         
     },
