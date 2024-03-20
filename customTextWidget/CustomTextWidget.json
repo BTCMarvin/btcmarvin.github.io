@@ -8,6 +8,7 @@
     "eula":"",
     "id":"CustomTextWidget",
     "version": "1.0.0",
+    "supportsExport": true,
     "webcomponents": [
         {
             "kind": "main",
@@ -31,6 +32,13 @@
         "getValue": {
             "returnType": "string",
             "description": "Retrieve the current HTML content of the text field, including formatting."
+        },
+        "setValue": {
+            "parameters": {
+                "name": "htmlText",
+                "type": "string",
+                "description": "Text in HTML format, to support more features"
+            }
         }
     },
     "events": {

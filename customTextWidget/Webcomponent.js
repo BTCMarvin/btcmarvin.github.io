@@ -68,6 +68,11 @@
             // Return just the text content, stripping out HTML tags
             return this._editableDiv.innerHTML;
         }
+
+        setValue(htmlValue) {
+            this._editableDiv.innerHTML = htmlValue;
+        }
+        
     }
 
     customElements.define('custom-textfield', CustomTextField);
