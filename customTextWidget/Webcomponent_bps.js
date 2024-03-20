@@ -1,58 +1,57 @@
 (function() {
-	let template = document.createElement("template");
-	template.innerHTML = `
-		<form id="form">
-			<fieldset>
-				<legend>Widget Properties</legend>
-				<table>
-					<tr>
-						<td>Mode</td>
-						<td>
-							<select id="bps_mode">
-								<option value="input">Input</option>
-								<option value="output">Output</option>
-							</select>
-						</td>
-					</tr>
-				</table>
-				<input type="submit" style="display:none;">
-			</fieldset>
-		</form>
-		<style>
-		:host {
-			display: block;
-			padding: 1em 1em 1em 1em;
-		}
-		</style>
-	`;
-
-	class BoxBps extends HTMLElement {
-		constructor() {
-			super();
-			this._shadowRoot = this.attachShadow({mode: "open"});
-			this._shadowRoot.appendChild(template.content.cloneNode(true));
-			this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
-		}
-
-		_submit(e) {
-			e.preventDefault();
-			this.dispatchEvent(new CustomEvent("propertiesChanged", {
-				detail: {
-					properties: {
-						mode: this.mode
-					}
-				}
-			}));
-		}
-
-		set mode(newMode) {
-			this._shadowRoot.getElementById("bps_mode").value = newMode;
-		}
-
-		get mode() {
-			return this._shadowRoot.getElementById("bps_mode").value;
-		}
-	}
-
-	customElements.define("com-demo-box-bps", BoxBps);
-})();
+    const template = document.createElement('template');
+    template.innerHTML = `
+    <style>
+        #root div {
+            margin: 0.5rem;
+        }
+        #textarea {
+            padding: 0;
+            width: 100%;
+            height: 20rem;
+        }
+    </style>
+    <div id="root" style="width: 100%; height: 100%;">
+        <div>Mode</div>
+        <div>
+            <select id="mode">
+                <option value="input">Input</option>
+                <option value="output">Output</option>
+            </select>
+        </div>
+            <button id="button">Apply</button>
+        </div>
+    </div>
+    `;
+  
+    class Builder extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
+  
+        this._button = this.shadowRoot.getElementById('button');
+        this._button.addEventListener('click', () => {
+          const mode = this.shadowRoot.getElementById('mode').value;
+          this.dispatchEvent(new CustomEvent('propertiesChanged', {
+            detail: {
+              properties: {
+                mode
+              }
+            }
+          }));
+        });
+      }
+  
+      async onCustomWidgetBeforeUpdate(changedProps) {
+      }
+  
+      async onCustomWidgetAfterUpdate(changedProps) {
+        if ("mode" in changedProps) {
+          this.shadowRoot.getElementById('mode').value = changedProps.mode;
+        }
+      }
+    }
+  
+    customElements.define('custom-textfield-builder', Builder);
+  })();
+  

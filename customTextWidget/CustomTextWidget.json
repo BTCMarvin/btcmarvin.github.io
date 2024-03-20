@@ -36,12 +36,9 @@
         },
         "fieldMode": {
             "type": "string",
-            "defaultValue": "input",
-            "options": [
-                {"key": "input", "text": "Input"},
-                {"key": "output", "text": "Output"}
-            ]
+            "default": "input"
         }
+        
     },
     "methods": {
         "getValue": {
