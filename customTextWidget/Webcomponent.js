@@ -9,7 +9,7 @@
         height: 150px; /* Adjust based on need */
         overflow: auto;
         width: 100%; /* Ensure it takes the full width of the container */
-        background-color: white; /* Set background color to white */
+        background-color: white; /* Explicitly set background to white */
     }
 
     .format-action {
@@ -54,19 +54,19 @@
                 });
             });
 
-            // Add event listener for the editable div to handle blur event
             this._editableDiv.addEventListener('blur', () => {
-                this.onChange();
+                this._onChange();
             });
         }
 
-        onChange() {
+        _onChange() {
             // Dispatch custom event when the component loses focus
             this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
         }
 
         getValue() {
-            return this._editableDiv.innerHTML;
+            // Return just the text content, stripping out HTML tags
+            return this._editableDiv.textContent;
         }
     }
 
