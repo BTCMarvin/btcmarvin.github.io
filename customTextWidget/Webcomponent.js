@@ -39,8 +39,8 @@
             this._editableDiv = this._shadowRoot.querySelector('.editable-textfield');
             this._buttons = this._shadowRoot.querySelectorAll('.format-action');
 
-            this._attachEventHandlers();
             this._props = {};
+            this._attachEventHandlers();
         }
 
         _attachEventHandlers() {

@@ -35,7 +35,7 @@
             "type": "integer",
             "default": 200
         },
-        "text": {
+        "value": {
             "type": "string",
             "default": "Enter new Text"
         }
