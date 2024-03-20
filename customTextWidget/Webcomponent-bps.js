@@ -8,7 +8,7 @@
 					<tr>
 						<td>Mode</td>
 						<td>
-							<select id="bps_mode">
+							<select id="bps_mode" type="change">
 								<option value="input">Input</option>
 								<option value="output">Output</option>
 							</select>
