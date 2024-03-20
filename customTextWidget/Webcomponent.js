@@ -23,7 +23,7 @@
     }
     </style>
     <div class="editable-textfield" contenteditable="true"></div>
-    <div>
+    <div class="button-container">
         <button class="format-action" data-style="bold">B</button>
         <button class="format-action" data-style="italic">I</button>
         <button class="format-action" data-style="underline">U</button>
@@ -71,6 +71,23 @@
 
         setValue(htmlValue) {
             this._editableDiv.innerHTML = htmlValue;
+        }
+
+        onCustomWidgetBeforeUpdate(changedProperties) {
+            if ("mode" in changedProperties) {
+                this._mode = changedProperties["mode"];
+            }
+        }
+
+        onCustomWidgetAfterUpdate() {
+            const buttonContainer = this._shadowRoot.querySelector(".button-container");
+            if (this._mode === "output") {
+                this.shadowRoot.querySelector('.container').style.pointerEvents = 'none';
+                buttonContainer.style.display = 'none'; // Optional: visually indicate non-interactivity
+            } else { // Assuming default or 'input' mode
+                this.shadowRoot.querySelector('.container').style.pointerEvents = 'all';
+                buttonContainer.style.display = 'block';
+            }
         }
         
     }

@@ -16,6 +16,13 @@
             "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent.js",
             "integrity": "",
             "ignoreIntegrity": true
+        },
+        {
+            "kind": "builder",
+            "tag": "custom-textfield-bps",
+            "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent_bps.js",
+            "integrity": "",
+            "ignoreIntegrity": true
         }
     ],
     "properties": {
@@ -26,6 +33,14 @@
         "height": {
             "type": "integer",
             "default": 200
+        },
+        "fieldMode": {
+            "type": "string",
+            "defaultValue": "input",
+            "options": [
+                {"key": "input", "text": "Input"},
+                {"key": "output", "text": "Output"}
+            ]
         }
     },
     "methods": {
@@ -34,11 +49,13 @@
             "description": "Retrieve the current HTML content of the text field, including formatting."
         },
         "setValue": {
-            "parameters": {
-                "name": "htmlText",
-                "type": "string",
-                "description": "Text in HTML format, to support more features"
-            }
+            "parameters": [
+                {
+                    "name": "htmlText",
+                    "type": "string",
+                    "description": "Text in HTML format, to support more features"
+                }
+            ]
         }
     },
     "events": {
