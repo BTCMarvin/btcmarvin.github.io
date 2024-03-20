@@ -9,6 +9,10 @@
 						<td>Color</td>
 						<td><input id="bps_color" type="text" size="10" maxlength="10"></td>
 					</tr>
+					<tr>
+						<td>Text</td>
+						<td><input id="bps_value" type="text" size="10"></td>
+					</tr>
 				</table>
 				<input type="submit" style="display:none;">
 			</fieldset>
@@ -34,7 +38,8 @@
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 					detail: {
 						properties: {
-							color: this.color
+							color: this.color,
+							value: this.value
 						}
 					}
 			}));
@@ -46,6 +51,14 @@
 
 		get color() {
 			return this._shadowRoot.getElementById("bps_color").value;
+		}
+
+		set value(newValue) {
+			this._shadowRoot.getElementById("bps_value").value = newValue;
+		}
+
+		get value() {
+			return this._shadowRoot.getElementById("bps_value").value;
 		}
 	}
 

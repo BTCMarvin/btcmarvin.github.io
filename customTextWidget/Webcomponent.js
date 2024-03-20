@@ -80,6 +80,18 @@
 
 		onCustomWidgetAfterUpdate(changedProperties) {
             console.log(changedProperties);
+			if ("value" in changedProperties) {
+				this.setValue(changedProperties["value"]);
+			}
+			
+			if ("info" in changedProperties) {
+				this.$info = changedProperties["info"];
+			}
+			
+			if ("color" in changedProperties) {
+				this.$color = changedProperties["color"];
+			}
+			
 		}
         
     }
