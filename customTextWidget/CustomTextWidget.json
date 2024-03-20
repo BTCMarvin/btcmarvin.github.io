@@ -41,7 +41,7 @@
         },
         "mode": {
             "type": "string",
-            "defualt": "input"
+            "default": "input"
         }
         
     },

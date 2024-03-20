@@ -46,7 +46,7 @@
 		}
 
 		set value(newMode) {
-			this._shadowRoot.getElementById("bps_mode").value = newValue;
+			this._shadowRoot.getElementById("bps_mode").value = newMode;
 		}
 
 		get value() {
