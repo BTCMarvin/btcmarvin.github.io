@@ -2,15 +2,24 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
     <style>
-    .editable-textfield {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
-        height: 150px; /* Adjust based on need */
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .editable-textfield {
+        flex-grow: 1;
         overflow: auto;
-        width: 100%; /* Ensure it takes the full width of the container */
-        background-color: white; /* Explicitly set background to white */
-    }
+        margin: 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+      
+      .button-container {
+        margin-top: 10px;
+      }
 
     .format-action {
         margin-right: 10px;
