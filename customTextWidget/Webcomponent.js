@@ -66,7 +66,7 @@
 
         getValue() {
             // Return just the text content, stripping out HTML tags
-            return this._editableDiv.textContent;
+            return this._editableDiv.innerHTML;
         }
     }
 

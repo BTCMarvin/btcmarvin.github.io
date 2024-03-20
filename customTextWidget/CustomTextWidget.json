@@ -30,17 +30,10 @@
     "methods": {
         "getValue": {
             "returnType": "string",
-            "description": "Retrieve the current HTML content of the text field, including formatting.",
-            "body": "return this._editableDiv.textContent;"
+            "description": "Retrieve the current HTML content of the text field, including formatting."
         }
     },
     "events": {
-        "onClick": {
-            "description": "Called when the user clicks the button"
-        },
-        "onFormatChange": {
-            "description": "Called when the text format is changed."
-        },
         "onChange": {
             "description": "Triggered when the text field loses focus after being edited."
         }
