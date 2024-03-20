@@ -33,8 +33,14 @@
         }
     },
     "events": {
+        "onClick": {
+            "description": "Called when the user clicks the button"
+        },
         "onFormatChange": {
             "description": "Called when the text format is changed."
+        },
+        "onChange": {
+            "description": "Triggered when the text field loses focus after being edited."
         }
     }
 }

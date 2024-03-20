@@ -9,6 +9,7 @@
         height: 150px; /* Adjust based on need */
         overflow: auto;
         width: 100%; /* Ensure it takes the full width of the container */
+        background-color: white; /* Set background color to white */
     }
 
     .format-action {
@@ -52,6 +53,16 @@
                     this.dispatchEvent(new CustomEvent('onFormatChange', { detail: { style: style } }));
                 });
             });
+
+            // Add event listener for the editable div to handle blur event
+            this._editableDiv.addEventListener('blur', () => {
+                this.onChange();
+            });
+        }
+
+        onChange() {
+            // Dispatch custom event when the component loses focus
+            this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
         }
 
         getValue() {
