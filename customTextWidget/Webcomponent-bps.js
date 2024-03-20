@@ -8,7 +8,7 @@
 					<tr>
 						<td>Mode</td>
 						<td>
-							<select id="bps_mode" type="change">
+							<select id="bps_mode">
 								<option value="input">Input</option>
 								<option value="output">Output</option>
 							</select>
@@ -36,6 +36,17 @@
 		}
 
 		_submit(e) {
+			e.preventDefault();
+			this.dispatchEvent(new CustomEvent("propertiesChanged", {
+					detail: {
+						properties: {
+							mode: this.mode
+						}
+					}
+			}));
+		}
+
+		_onChange(e) {
 			e.preventDefault();
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 					detail: {
