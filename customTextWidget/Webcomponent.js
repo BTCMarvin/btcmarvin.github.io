@@ -81,6 +81,7 @@
 		onCustomWidgetAfterUpdate(changedProperties) {
             console.log(changedProperties);
 			if ("mode" in changedProperties) {
+                console.log(changedProperties["mode"]);
 				if(changedProperties["mode"] == "input"){
                     this._buttons.style.display = "block";
                     this._editableDiv.style.pointerEvents = "all";

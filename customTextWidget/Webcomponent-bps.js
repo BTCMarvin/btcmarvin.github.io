@@ -45,11 +45,11 @@
 			}));
 		}
 
-		set value(newMode) {
+		set mode(newMode) {
 			this._shadowRoot.getElementById("bps_mode").value = newMode;
 		}
 
-		get value() {
+		get mode() {
 			return this._shadowRoot.getElementById("bps_mode").value;
 		}
 	}
