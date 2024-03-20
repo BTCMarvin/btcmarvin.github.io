@@ -16,13 +16,6 @@
             "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent.js",
             "integrity": "",
             "ignoreIntegrity": true
-        },
-        {
-            "kind": "builder",
-            "tag": "custom-textfield-bps",
-            "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent_bps.js",
-            "integrity": "",
-            "ignoreIntegrity": true
         }
     ],
     "properties": {
@@ -33,10 +26,6 @@
         "height": {
             "type": "integer",
             "default": 200
-        },
-        "fieldMode": {
-            "type": "string",
-            "default": "input"
         }
         
     },
