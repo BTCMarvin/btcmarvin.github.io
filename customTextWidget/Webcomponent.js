@@ -80,13 +80,14 @@
 
 		onCustomWidgetAfterUpdate(changedProperties) {
             console.log(changedProperties);
+            const buttonDiv = this._shadowRoot.querySelector(".button-container");
 			if ("mode" in changedProperties) {
                 console.log(changedProperties["mode"]);
 				if(changedProperties["mode"] == "input"){
-                    this._buttons.style.display = "block";
+                    buttonDiv.style.display = "block";
                     this._editableDiv.style.pointerEvents = "all";
                 }else if (changedProperties["mode"] == "output") {
-                    this._buttons.style.display = "none";
+                    buttonDiv.style.display = "none";
                     this._editableDiv.style.pointerEvents = "none";
                 }
 			}
