@@ -1,0 +1,40 @@
+{
+    "name": "CustomTextField",
+    "description": "A custom text field with support for bold, italic, and underline formatting.",
+    "icon": "sap-icon://notes",
+    "newInstancePrefix": "CustomTextField",
+    "vendor": "Marvin Lohß",
+    "license": "",
+    "eula":"",
+    "id":"CustomTextWidget",
+    "version": "1.0.0",
+    "webcomponents": [
+        {
+            "kind": "main",
+            "tag": "custom-textfield",
+            "url": "https://btcmarvin.github.io/CustomTextWidget/Webcomponent.js",
+            "integrity": "",
+            "ignoreIntegrity": true
+        }
+    ],
+    "properties": {
+        "width": {
+            "type": "integer",
+            "default": 300
+        },
+        "height": {
+            "type": "integer",
+            "default": 200
+        }
+    },
+    "methods": {
+        "getValue": {
+            "description": "Retrieve the current HTML content of the text field, including formatting."
+        }
+    },
+    "events": {
+        "onFormatChange": {
+            "description": "Called when the text format is changed."
+        }
+    }
+}
