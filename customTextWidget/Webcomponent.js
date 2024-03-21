@@ -52,8 +52,6 @@
             <button class="format-action" data-style="bold">B</button>
             <button class="format-action" data-style="italic">I</button>
             <button class="format-action" data-style="underline">U</button>
-            <input type="text" class="color-input" placeholder="#hexcode" />
-            <button class="reset-color">X</button>
         </div>
     </div>
     `;
@@ -66,8 +64,6 @@
 
             this._editableDiv = this._shadowRoot.querySelector('.editable-textfield');
             this._buttons = this._shadowRoot.querySelectorAll('.format-action');
-            this._colorInput = this._shadowRoot.querySelector('.color-input');
-            this._resetColorButton = this._shadowRoot.querySelector('.reset-color');
 
             this._props = {};
             this._attachEventHandlers();
@@ -81,17 +77,6 @@
                     this._editableDiv.focus(); // Refocus on editable div to continue typing
 
                 });
-            });
-
-            this._colorInput.addEventListener('input', (e) => {
-                const color = e.target.value;
-                document.execCommand('foreColor', false, color);
-            });
-
-            this._resetColorButton.addEventListener('click', (e) => {
-                // Resets to default color (you can define what you consider default)
-                document.execCommand('foreColor', false, '#000000'); // Black as default
-                this._colorInput.value = ''; // Clear input field
             });
 
             this._editableDiv.addEventListener('blur', () => {
