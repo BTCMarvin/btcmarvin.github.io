@@ -6,7 +6,7 @@
         border: 1px solid #ccc;
         padding: 10px;
         margin-bottom: 10px;
-        height: 150px; /* Adjust based on need */
+        height: 100%; /* Adjust based on need */
         overflow: auto;
         width: 100%; /* Ensure it takes the full width of the container */
         background-color: white; /* Explicitly set background to white */
