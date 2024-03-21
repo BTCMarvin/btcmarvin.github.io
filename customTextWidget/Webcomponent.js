@@ -4,25 +4,29 @@
     <style>
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* Changed to row for horizontal layout */
         height: 100%;
-      }
-      
-      .editable-textfield {
-        flex-grow: 1;
+        align-items: stretch; /* Ensure children stretch to fill the container height */
+    }
+    
+    .editable-textfield {
+        flex-grow: 1; /* Allow the textfield to fill the available space */
         overflow: auto;
         margin: 0;
         padding: 10px;
         border: 1px solid #ccc;
         background-color: white;
-      }
-      
-      .button-container {
-        margin-top: 10px;
-      }
-
+    }
+    
+    .button-container {
+        display: flex; /* Added to align buttons vertically */
+        flex-direction: column; /* Align buttons vertically */
+        justify-content: start; /* Align items at the start of the container */
+        padding-left: 10px; /* Space between textfield and buttons */
+    }
+    
     .format-action {
-        margin-right: 10px;
+        margin-bottom: 10px; /* Added space between buttons */
         cursor: pointer;
         padding: 5px 10px;
         background-color: #007bff;
@@ -30,6 +34,7 @@
         border: none;
         user-select: none; /* Prevent button text selection */
     }
+    
     </style>
     <div class="editable-textfield" contenteditable="true"></div>
     <div class="button-container">
