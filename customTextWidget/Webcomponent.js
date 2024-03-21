@@ -8,8 +8,22 @@
         align-items: stretch; /* Stretch children to fill container height */
     }
     
+    html, body, .container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars on the body */
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+    
     .editable-textfield {
-        flex-grow: 1; /* Fill available horizontal space */
+        flex-grow: 1;
         overflow: auto;
         margin: 0;
         padding: 10px;
@@ -19,30 +33,21 @@
     
     .button-container {
         display: flex;
-        flex-direction: column; /* Align buttons vertically */
-        justify-content: start; /* Align at the start of the container */
-        padding-left: 10px; /* Space between textfield and buttons */
+        flex-direction: column;
+        justify-content: start;
+        padding-left: 10px;
     }
     
     .format-action {
-        margin-bottom: 10px; /* Space between buttons */
+        margin-bottom: 10px;
         cursor: pointer;
         padding: 5px 10px;
         background-color: #007bff;
         color: white;
         border: none;
-        user-select: none; /* Prevent text selection */
+        user-select: none;
     }
-    </style>
     
-    <div class="container">
-        <div class="editable-textfield" contenteditable="true"></div>
-        <div class="button-container">
-            <button class="format-action" data-style="bold">B</button>
-            <button class="format-action" data-style="italic">I</button>
-            <button class="format-action" data-style="underline">U</button>
-        </div>
-    </div>
     `;
 
     class CustomTextField extends HTMLElement {
