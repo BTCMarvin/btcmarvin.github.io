@@ -4,39 +4,22 @@
     <style>
     .container {
         display: flex;
-        flex-direction: row; /* Horizontal layout */
-        align-items: stretch; /* Stretch children to fill container height */
-    }
-    
-    html, body, .container {
-        width: 100%;
+        flex-direction: column;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Prevent scrollbars on the body */
-    }
-    
-    .container {
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-    }
-    
-    .editable-textfield {
+      }
+      
+      .editable-textfield {
         flex-grow: 1;
         overflow: auto;
         margin: 0;
         padding: 10px;
         border: 1px solid #ccc;
         background-color: white;
-    }
-    
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        padding-left: 10px;
-    }
+      }
+      
+      .button-container {
+        margin-top: 10px;
+      }
     
     .format-action {
         margin-bottom: 10px;
