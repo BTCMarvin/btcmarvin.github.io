@@ -2,35 +2,32 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
     <style>
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      
-      .editable-textfield {
-        flex-grow: 1;
-        overflow: auto;
-        margin: 0;
-        padding: 10px;
+    .editable-textfield {
         border: 1px solid #ccc;
-        background-color: white;
-      }
-      
-      .button-container {
-        margin-top: 10px;
-      }
-    
-    .format-action {
+        padding: 10px;
         margin-bottom: 10px;
+        height: 150px; /* Adjust based on need */
+        overflow: auto;
+        width: 100%; /* Ensure it takes the full width of the container */
+        background-color: white; /* Explicitly set background to white */
+    }
+
+    .format-action {
+        margin-right: 10px;
         cursor: pointer;
         padding: 5px 10px;
         background-color: #007bff;
         color: white;
         border: none;
-        user-select: none;
+        user-select: none; /* Prevent button text selection */
     }
-    
+    </style>
+    <div class="editable-textfield" contenteditable="true"></div>
+    <div class="button-container">
+        <button class="format-action" data-style="bold">B</button>
+        <button class="format-action" data-style="italic">I</button>
+        <button class="format-action" data-style="underline">U</button>
+    </div>
     `;
 
     class CustomTextField extends HTMLElement {
