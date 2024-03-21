@@ -66,7 +66,7 @@
 
             this._editableDiv = this._shadowRoot.querySelector('.editable-textfield');
             this._buttons = this._shadowRoot.querySelectorAll('.format-action');
-            this._colorInput = this._shadowRoot.querySelector('color-input');
+            this._colorInput = this._shadowRoot.querySelector('.color-input');
             this._resetColorButton = this._shadowRoot.querySelector('.reset-color');
 
             this._props = {};
