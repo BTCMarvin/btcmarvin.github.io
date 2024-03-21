@@ -3,38 +3,41 @@
     tmpl.innerHTML = `
     <style>
     .container {
-        display: flex; /* Use flex layout */
-        flex-direction: column; /* Stack children vertically */
-        height: 100vh; /* Full height of the viewport */
+        display: flex; /* Establishes a flex container */
+        flex-direction: column; /* Stacks flex items vertically */
+        height: 100%; /* Uses 100% of the available height */
     }
 
     .editable-textfield {
-        border: 1px solid #ccc;
+        flex-grow: 1; /* Allows the text field to fill available space */
+        overflow-y: auto; /* Ensures content scrolls within the text field */
         padding: 10px;
-        overflow: auto;
-        width: 100%; /* Ensure it takes the full width */
-        background-color: white; /* Explicitly set background to white */
-        flex-grow: 1; /* Take up all available space */
+        margin: 0; /* Removes default margins */
+        border: 1px solid #ccc;
+        background-color: white;
     }
 
     .button-container {
-        /* No specific height is needed, content dictates the size */
-        padding: 10px; /* Optional: for spacing around buttons */
-        box-sizing: border-box; /* Include padding in the container's height calculation */
+        /* Auto-calculates height based on content, ensuring it adapts to variable space */
+        display: flex; /* Ensures buttons are in a row */
+        padding: 10px; /* Provides spacing around buttons */
+        justify-content: flex-start; /* Aligns buttons to the start */
+        background: #f8f9fa; /* Differentiates the button container visually */
     }
 
     .format-action {
         margin-right: 10px;
-        cursor: pointer;
         padding: 5px 10px;
         background-color: #007bff;
         color: white;
         border: none;
-        user-select: none; /* Prevent button text selection */
+        cursor: pointer;
     }
 </style>
 <div class="container">
-    <div class="editable-textfield" contenteditable="true"></div>
+    <div class="editable-textfield" contenteditable="true">
+        Type your text here...
+    </div>
     <div class="button-container">
         <button class="format-action" data-style="bold">B</button>
         <button class="format-action" data-style="italic">I</button>
