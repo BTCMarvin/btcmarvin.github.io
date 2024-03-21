@@ -2,25 +2,41 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
     <style>
-    .editable-textfield {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
-        height: 80%; /* Adjust based on need */
-        overflow: auto;
-        width: 100%; /* Ensure it takes the full width of the container */
-        background-color: white; /* Explicitly set background to white */
-    }
+    <style>
+        .editable-textfield {
+            border: 1px solid #ccc;
+            padding: 10px;
+            /* Adjust the bottom margin or padding to leave space for the button container */
+            margin-bottom: 50px; /* Adjust based on the height of your button container */
+            overflow: auto;
+            width: 100%; /* Ensure it takes the full width of the container */
+            background-color: white; /* Explicitly set background to white */
+            position: absolute; /* Make the textfield use absolute positioning */
+            top: 0; /* Align to the top */
+            bottom: 50px; /* Leave space for the buttons */
+        }
 
-    .format-action {
-        margin-right: 10px;
-        cursor: pointer;
-        padding: 5px 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        user-select: none; /* Prevent button text selection */
-    }
+        .button-container {
+            height: 50px; /* Set a specific height for your button container */
+            position: absolute; /* Position it absolutely relative to its nearest positioned ancestor */
+            bottom: 0; /* Align to the bottom */
+            width: 100%; /* Ensure it takes the full width */
+            background-color: #f8f9fa; /* Give it a background color to make it distinguishable */
+            display: flex; /* Use flexbox for easy alignment */
+            align-items: center; /* Center-align the items vertically */
+            justify-content: start; /* Align the buttons to the start of the container */
+            padding-left: 10px; /* Add some padding on the left */
+        }
+
+        .format-action {
+            margin-right: 10px;
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            user-select: none; /* Prevent button text selection */
+        }
     </style>
     <div class="editable-textfield" contenteditable="true"></div>
     <div class="button-container">
