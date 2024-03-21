@@ -33,7 +33,7 @@
         },
         "height": {
             "type": "integer",
-            "default": 200
+            "default": 100
         },
         "value": {
             "type": "string",
