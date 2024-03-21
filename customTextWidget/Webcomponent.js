@@ -35,9 +35,7 @@
     }
 </style>
 <div class="container">
-    <div class="editable-textfield" contenteditable="true">
-        Type your text here...
-    </div>
+    <div class="editable-textfield" contenteditable="true"></div>
     <div class="button-container">
         <button class="format-action" data-style="bold">B</button>
         <button class="format-action" data-style="italic">I</button>
