@@ -35,10 +35,6 @@
             "type": "integer",
             "default": 100
         },
-        "value": {
-            "type": "string",
-            "default": ""
-        },
         "mode": {
             "type": "string",
             "default": "output"

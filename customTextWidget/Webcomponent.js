@@ -64,6 +64,7 @@
 
             this._editableDiv = this._shadowRoot.querySelector('.editable-textfield');
             this._buttons = this._shadowRoot.querySelectorAll('.format-action');
+            console.log(this._props.text);
 
             this._props = {};
             this._attachEventHandlers();
@@ -86,8 +87,8 @@
 
         _onChange() {
             // Dispatch custom event when the component loses focus
-            this._props.value = this._editableDiv.innerHTML;
             this._props.text = this._editableDiv.innerHTML;
+            console.log(this._props.text);
             this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
         }
 
