@@ -117,6 +117,17 @@
 			}
 			
 		}
+
+        getBookmarkState() {
+            return { htmlContent: this.getValue() };
+        }
+    
+        // Method to apply a previously saved state
+        applyBookmarkState(state) {
+            if (state && state.htmlContent) {
+                this.setValue(state.htmlContent);
+            }
+        }
         
     }
 
