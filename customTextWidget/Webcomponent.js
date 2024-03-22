@@ -123,18 +123,25 @@
 		}
 
         getBookmarkState() {
-            const state = { htmlContent: this.getValue() };
-            console.log('Saving state for bookmark:', state);
-            return state;
+            return {
+                htmlContent: this._editableDiv.innerHTML, // or .textContent for plain text
+                value: this._props.value
+            };
         }
         
-    
         // Method to apply a previously saved state
         applyBookmarkState(state) {
-            if (state && state.htmlContent) {
-                this.setValue(state.htmlContent);
+            if (state) {
+                if (state.htmlContent) {
+                    this._editableDiv.innerHTML = state.htmlContent; // Restore visual content
+                }
+                if (state.value) {
+                    this._props.value = state.value; // Update internal state
+                    // If you have a method to programmatically update the display based on _props.value, call it here
+                }
             }
         }
+        
         
     }
 
