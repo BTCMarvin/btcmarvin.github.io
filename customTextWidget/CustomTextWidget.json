@@ -7,21 +7,21 @@
     "license": "",
     "eula":"",
     "id":"CustomTextWidget",
-    "version": "1.0.1",
+    "version": "1.0.6",
     "supportsExport": true,
     "supportsBookmark": true,
     "webcomponents": [
         {
             "kind": "main",
             "tag": "custom-textfield",
-            "url": "https://btcmarvin.github.io/customTextWidget/Webcomponent.js",
+            "url": "/Webcomponent.js",
             "integrity": "",
             "ignoreIntegrity": true
         },
         {
 			"kind": "builder",
 			"tag": "custom-textfield-bps",
-			"url": "https://btcmarvin.github.io/customTextWidget/Webcomponent-bps.js",
+			"url": "/Webcomponent-bps.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}
@@ -42,8 +42,11 @@
         "mode": {
             "type": "string",
             "default": "output"
-        }
-        
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        }        
     },
     "methods": {
         "getValue": {

@@ -87,7 +87,24 @@
         _onChange() {
             // Dispatch custom event when the component loses focus
             this._props.value = this._editableDiv.innerHTML;
+            this._props.text = this._editableDiv.innerHTML;
             this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
+        }
+
+        // Update the bookmarking methods
+        getBookmarkState() {
+            console.log("Creating");
+            return {
+                text: this._editableDiv.innerHTML // Save the innerHTML as the text property state
+            };
+        }
+        
+        applyBookmarkState(state) {
+            console.log("ApplyingBookmark");
+            if (state && state.text) {
+                this._editableDiv.innerHTML = state.text; // Restore the HTML content from the text property
+                this._props.text = state.text; // Update the internal text property state
+            }
         }
 
         getValue() {
@@ -104,10 +121,9 @@
 		}
 
 		onCustomWidgetAfterUpdate(changedProperties) {
-            if ( changedProperties.hasOwnProperty('value')) {
-                this.setValue(changedProperties.value);
+            if ("text" in changedProperties) {
+                this.setValue(changedProperties["text"]); // Update the UI when the text property changes
             }
-            console.log(changedProperties);
             const buttonDiv = this._shadowRoot.querySelector(".button-container");
 			if ("mode" in changedProperties) {
                 console.log(changedProperties["mode"]);
@@ -121,28 +137,7 @@
 			}
 			
 		}
-
-        getBookmarkState() {
-            return {
-                htmlContent: this._editableDiv.innerHTML, // or .textContent for plain text
-                value: this._props.value
-            };
-        }
-        
-        // Method to apply a previously saved state
-        applyBookmarkState(state) {
-            if (state) {
-                if (state.htmlContent) {
-                    this._editableDiv.innerHTML = state.htmlContent; // Restore visual content
-                }
-                if (state.value) {
-                    this._props.value = state.value; // Update internal state
-                    // If you have a method to programmatically update the display based on _props.value, call it here
-                }
-            }
-        }
-        
-        
+         
     }
 
     customElements.define('custom-textfield', CustomTextField);
