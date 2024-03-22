@@ -86,6 +86,7 @@
 
         _onChange() {
             // Dispatch custom event when the component loses focus
+            this._props.value = this._editableDiv.innerHTML;
             this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
         }
 
@@ -103,6 +104,9 @@
 		}
 
 		onCustomWidgetAfterUpdate(changedProperties) {
+            if ( changedProperties.hasOwnProperty('value')) {
+                this.setValue(changedProperties.value);
+            }
             console.log(changedProperties);
             const buttonDiv = this._shadowRoot.querySelector(".button-container");
 			if ("mode" in changedProperties) {
