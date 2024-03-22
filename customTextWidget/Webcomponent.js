@@ -123,8 +123,11 @@
 		}
 
         getBookmarkState() {
-            return { htmlContent: this.getValue() };
+            const state = { htmlContent: this.getValue() };
+            console.log('Saving state for bookmark:', state);
+            return state;
         }
+        
     
         // Method to apply a previously saved state
         applyBookmarkState(state) {
