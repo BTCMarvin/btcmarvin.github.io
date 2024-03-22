@@ -91,22 +91,6 @@
             this.dispatchEvent(new CustomEvent('onChange', { detail: { value: this.getValue() } }));
         }
 
-        // Update the bookmarking methods
-        getBookmarkState() {
-            console.log("Creating");
-            return {
-                text: this._editableDiv.innerHTML // Save the innerHTML as the text property state
-            };
-        }
-        
-        applyBookmarkState(state) {
-            console.log("ApplyingBookmark");
-            if (state && state.text) {
-                this._editableDiv.innerHTML = state.text; // Restore the HTML content from the text property
-                this._props.text = state.text; // Update the internal text property state
-            }
-        }
-
         getValue() {
             // Return just the text content, stripping out HTML tags
             return this._editableDiv.innerHTML;
